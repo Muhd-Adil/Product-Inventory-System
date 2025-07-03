@@ -1,0 +1,338 @@
+/* General Body and App Layout */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #282c34; /* Darker header */
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar a:hover {
+    background-color: #4a505c;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Main Content Container */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 30px auto; /* More margin */
+    background-color: white;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+    flex-grow: 1; /* Allows container to take available space */
+}
+
+/* Headings */
+h2 {
+    color: #007bff; /* Primary blue color */
+    border-bottom: 2px solid #e0e0e0; /* Lighter border */
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2em;
+}
+
+h3 {
+    color: #343a40;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="file"],
+.form-group select {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* Rounded corners */
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Product Form Specific */
+.product-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.variant-group, .options-group {
+    border: 1px dashed #a7d9ff; /* Lighter dashed border */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px; /* More rounded */
+    background-color: #f8fcff; /* Very light blue background */
+}
+
+.variant-group input, .option-item input {
+    margin-bottom: 10px;
+}
+
+.variant-group button, .option-item button {
+    background-color: #dc3545; /* Red for remove buttons */
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+.variant-group button:hover, .option-item button:hover {
+    background-color: #c82333;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Product List Specific */
+.product-cards {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Slightly larger cards */
+    gap: 25px; /* More space between cards */
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px; /* Rounded corners */
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.5em;
+}
+
+.product-image {
+    max-width: 150px; /* Larger image size */
+    max-height: 150px;
+    border-radius: 8px; /* Rounded image corners */
+    margin-bottom: 15px;
+    object-fit: cover; /* Ensures image covers area without distortion */
+}
+
+.product-variants {
+    margin-top: 20px;
+    border-top: 1px dashed #ccc;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.product-variants h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.product-variants ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.product-variants li {
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #e9e9e9;
+    font-size: 0.95em;
+}
+
+/* Stock Management Specific */
+.stock-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Stock Report Specific */
+.filters {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e9f5ff;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for filters */
+}
+
+.filters label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.filters input[type="date"] {
+    flex-grow: 1; /* Allow date inputs to grow */
+    min-width: 150px; /* Minimum width for date input */
+}
+
+.stock-report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures rounded corners apply to table */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock-report-table th,
+.stock-report-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.stock-report-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.stock-report-table tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.stock-report-table tbody tr:hover {
+    background-color: #eef;
+}
+
+/* Messages */
+.loading-message, .no-data-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: #666;
+    background-color: #e9e9e9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .product-cards {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters input[type="date"], .filters button {
+        width: 100%;
+    }
+}

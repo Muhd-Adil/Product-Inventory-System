@@ -1,0 +1,52 @@
+# Python / Django
+# =========================
+*.pyc
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.tox/
+.env
+venv/
+env/
+pip-log.txt
+pip-delete-this-arg.txt
+*.sqlite3
+*.log
+local_settings.py # If you have a local settings file not tracked by git
+media/ # User-uploaded files (e.g., product images)
+static_cdn/ # Collected static files if served by Django in production
+
+# Node.js / React
+# =========================
+node_modules/
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.DS_Store # macOS specific
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+dist/ # Common output directory for build tools like Vite
+
+# IDEs and Editors
+# =========================
+.idea/ # IntelliJ IDEA / PyCharm
+.vscode/ # Visual Studio Code
+*.sublime-project
+*.sublime-workspace
+.project
+.settings
+.vs/ # Visual Studio
+Thumbs.db # Windows thumbnails
+
+# Operating System Files
+# =========================
+.DS_Store
+.Trashes
+ehthumbs.db
+Icon?
+*.swp # Vim swap files
+*~ # Emacs backup files
