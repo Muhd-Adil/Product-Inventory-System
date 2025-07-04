@@ -63,7 +63,7 @@ class SubVariant(models.Model):
         return f"{self.variant.name}: {self.option}"
 
 
-class ProductSKU(models.Model):
+class ProductSKU(models.Model):  # SKU -> Stock Keeping Unit
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     product = models.ForeignKey(
         Products, related_name='productsku_set', on_delete=models.CASCADE)

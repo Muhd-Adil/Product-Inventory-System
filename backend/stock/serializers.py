@@ -1,5 +1,3 @@
-# backend/stock/serializers.py
-
 from rest_framework import serializers
 from .models import StockTransaction
 from products.models import Products, ProductSKU, Variant, SubVariant  # Import new models

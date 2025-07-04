@@ -1,5 +1,3 @@
-# backend/stock/admin.py
-
 from django.contrib import admin
 from .models import StockTransaction
 # Ensure these are imported if used in admin.py

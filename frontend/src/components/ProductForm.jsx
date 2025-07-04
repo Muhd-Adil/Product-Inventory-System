@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { createProduct } from '../api/products'; // REMOVED getCategories import
+import { createProduct } from '../api/products'; 
 import ErrorDisplay from './ErrorDisplay';
 
 /**
@@ -13,8 +13,6 @@ const ProductForm = () => {
     const [hsnCode, setHsnCode] = useState('');
     const [image, setImage] = useState(null);
     const [isActive, setIsActive] = useState(true);
-    // REMOVED: categories state
-    // REMOVED: selectedCategoryId state
 
     // State for managing dynamic variants and their options (sub-variants)
     const [variants, setVariants] = useState([{ name: '', options: [''] }]);
@@ -26,8 +24,6 @@ const ProductForm = () => {
     const [loading, setLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
     const [error, setError] = useState(null);
-
-    // REMOVED: useEffect for fetching categories
 
     /**
      * Generates all possible combinations of sub-variants to form Product SKUs.
@@ -182,7 +178,6 @@ const ProductForm = () => {
             payload.append('variants_json', JSON.stringify(formattedVariants));
             payload.append('initial_product_skus_json', JSON.stringify(initialProductSkusPayload));
             payload.append('Active', isActive);
-            // REMOVED: payload.append('category_id', selectedCategoryId);
         } else {
             payload = {
                 ProductName: productName.trim(),
@@ -191,7 +186,6 @@ const ProductForm = () => {
                 variants: formattedVariants,
                 initial_product_skus: initialProductSkusPayload,
                 Active: isActive,
-                // REMOVED: category_id: selectedCategoryId || null,
             };
         }
 
@@ -273,8 +267,6 @@ const ProductForm = () => {
                         className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                     />
                 </div>
-
-                {/* REMOVED: Category Select */}
 
                 {/* Active checkbox */}
                 <div className="mb-6 flex items-center">

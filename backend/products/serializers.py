@@ -1,8 +1,6 @@
-# backend/products/serializers.py
-
 from rest_framework import serializers
 from django.db import transaction
-from .models import Products, Variant, SubVariant, ProductSKU  # REMOVED Category
+from .models import Products, Variant, SubVariant, ProductSKU
 from stock.models import StockTransaction
 import logging
 
@@ -85,13 +83,10 @@ class ProductSerializer(serializers.ModelSerializer):
         max_digits=10, decimal_places=2, read_only=True)
     ProductImage = serializers.ImageField(required=False, allow_null=True)
 
-    # REMOVED: category = CategorySerializer(read_only=True)
-
     class Meta:
         model = Products
         fields = ['id', 'ProductID', 'ProductCode', 'ProductName', 'ProductImage',
                   'CreatedDate', 'UpdatedDate', 'CreatedUser', 'IsFavourite', 'Active',
-                  # REMOVED 'category' from fields
                   'HSNCode', 'TotalStock', 'variants', 'product_skus']
         read_only_fields = ['id', 'CreatedDate', 'UpdatedDate',
                             'CreatedUser', 'TotalStock', 'ProductID']

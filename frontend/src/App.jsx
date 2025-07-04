@@ -6,10 +6,6 @@ import StockManagement from './components/StockManagement';
 import StockReport from './components/StockReport';
 import './styles/App.css'; // Import global styles
 
-/**
- * The main application component.
- * Sets up routing for different sections of the inventory system.
- */
 function App() {
     return (
         <Router>

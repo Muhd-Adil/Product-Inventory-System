@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { getProducts } from '../api/products'; // Only getProducts needed here
+import { getProducts } from '../api/products';
 import ErrorDisplay from './ErrorDisplay';
 
 /**
@@ -11,10 +11,6 @@ const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    // REMOVED: categories state
-    // REMOVED: filterCategoryId state
-
-    // REMOVED: useEffect for fetching categories
 
     /**
      * Fetches products from the API.
@@ -24,7 +20,6 @@ const ProductList = () => {
         setLoading(true);
         setError(null);
         try {
-            // REMOVED: params and filterCategoryId logic
             const response = await getProducts(); // No params passed if no filtering
             console.log("API Response Data for Product List (with SKUs):", response.data);
 
@@ -37,7 +32,7 @@ const ProductList = () => {
         } finally {
             setLoading(false);
         }
-    }, []); // Removed filterCategoryId from dependency array
+    }, []); 
 
     // Effect hook to fetch products when the component mounts
     useEffect(() => {
@@ -76,7 +71,6 @@ const ProductList = () => {
         <div className="p-6 bg-white rounded-lg shadow-md max-w-6xl mx-auto my-8">
             <h2 className="text-3xl font-bold text-center text-blue-700 mb-8 pb-4 border-b-2 border-gray-200">Product List</h2>
             
-            {/* REMOVED: Category Filter JSX */}
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {products.map(product => (
@@ -99,7 +93,6 @@ const ProductList = () => {
                             />
                         )}
 
-                        {/* REMOVED: Display Category Name if available */}
 
                         {/* Display Total Stock from the computed property */}
                         <p className="text-gray-700 mb-4">

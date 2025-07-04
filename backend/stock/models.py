@@ -1,9 +1,7 @@
-# backend/stock/models.py
-
 import uuid
 from django.db import models
 from django.utils import timezone
-from products.models import Products, ProductSKU  # Import ProductSKU
+from products.models import Products, ProductSKU  # SKU -> Stock Keeping Unit
 
 
 class StockTransaction(models.Model):

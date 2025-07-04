@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { getStockReport } from '../api/products'; // Assuming getStockReport is in products API
+import { getStockReport } from '../api/products';
 import ErrorDisplay from './ErrorDisplay';
 import moment from 'moment'; // For date formatting
 
@@ -14,10 +14,8 @@ const StockReport = () => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
-    /**
-     * Fetches the stock report from the API based on current filter criteria.
-     * Wrapped in useCallback for memoization.
-     */
+
+    //Fetches the stock report from the API based on current filter criteria.
     const fetchReport = useCallback(async () => {
         setLoading(true);
         setError(null);

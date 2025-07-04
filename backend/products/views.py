@@ -14,7 +14,7 @@ from stock.serializers import StockTransactionSerializer
 
 logger = logging.getLogger(__name__)
 
-# Task-1: Create Product API
+# Create Product API
 
 
 class ProductCreateAPIView(generics.CreateAPIView):
@@ -89,12 +89,11 @@ class ProductCreateAPIView(generics.CreateAPIView):
             logger.error(f"Error creating product: {e}", exc_info=True)
             raise
 
-# Task-2: List Product API
+# List Product API
 
 
 class ProductListAPIView(generics.ListAPIView):
     queryset = Products.objects.prefetch_related(
-        # REMOVED .select_related('category')
         'productsku_set__sub_variants').all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]
@@ -102,10 +101,9 @@ class ProductListAPIView(generics.ListAPIView):
         'ProductName': ['icontains'],
         'ProductCode': ['exact'],
         'Active': ['exact'],
-        # REMOVED: 'category__id': ['exact'],
     }
 
-# Task-3: Add Stock (Purchase) API
+# Add Stock (Purchase) API
 
 
 class AddStockAPIView(APIView):
@@ -156,7 +154,7 @@ class AddStockAPIView(APIView):
             logger.error(f"Error adding stock: {e}", exc_info=True)
             return Response({"error": "Internal server error.", "details": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-# Task-4: Remove Stock (Sale) API
+# Remove Stock (Sale) API
 
 
 class RemoveStockAPIView(APIView):
@@ -213,7 +211,7 @@ class RemoveStockAPIView(APIView):
             return Response({"error": "Internal server error.", "details": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-# Task-5: Stock Report API (List transactions with date filter)
+# Stock Report API (List transactions with date filter)
 class StockReportAPIView(generics.ListAPIView):
     queryset = StockTransaction.objects.all().select_related('product', 'product_sku')
     serializer_class = StockTransactionSerializer

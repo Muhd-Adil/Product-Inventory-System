@@ -20,7 +20,7 @@ class VariantInline(admin.TabularInline):
 # Inline for ProductSKU within ProductAdmin
 
 
-class ProductSKUInline(admin.TabularInline):
+class ProductSKUInline(admin.TabularInline):  # SKU -> Stock Keeping Unit
     model = ProductSKU
     extra = 0  # No extra blank forms by default
     show_change_link = True

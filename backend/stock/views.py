@@ -1,17 +1,14 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django_filters.rest_framework import DjangoFilterBackend  # Import this
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import StockTransaction
-# Assuming this is the serializer
 from .serializers import StockTransactionSerializer
 import logging
 
 logger = logging.getLogger(__name__)
 
-# ... (other views like ProductCreateAPIView, AddStockAPIView, RemoveStockAPIView) ...
-
-# Task-5: Stock Report API (List transactions with date filter)
+# Stock Report API (List transactions with date filter)
 
 
 class StockReportAPIView(generics.ListAPIView):
@@ -30,6 +27,5 @@ class StockReportAPIView(generics.ListAPIView):
     }
 
     def get_queryset(self):
-        # You can add custom filtering logic here if needed, beyond filterset_fields
         queryset = super().get_queryset()
         return queryset
